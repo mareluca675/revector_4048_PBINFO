@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+typedef unsigned int ust;
+typedef short sr;
+
+int A[100001];
+int B[100001];
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    ust n;
+    cin >> n;
+
+    for(ust i = 1; i <= n; ++ i){
+        cin >> A[i];
+    }
+
+    ust k = 0;
+    for(ust i = 1, j = n; i <= j; ++ i, -- j){
+        if(i == j){
+            B[++ k] = i;
+            break;
+        }
+
+        B[++ k] = i;
+        B[++ k] = j;
+    }
+
+    for(ust i = n; i >= 1; -- i){
+        cout << A[B[i]] << ' ';
+    }
+
+    return 0;
+}
